@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HUVIS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/prefixfree.min.js"></script>
+    
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+    
+    <script>
+     $(document).ready(function(){
+         var banner = $(".slider_box");
+         var bannerLength = banner.find("li").length;
+         var currentIndex = 0;
+         
+         //처음 오픈시 자동 FadeInOut이 필요하면 timer()를 실행시켜줘여한다.
+        timer();
+    
+        //버튼이 필요없어도 자동 실행을 위해서 버튼은 남겨두어야 한다.
+        //만일 화면에서 필요 없으면 화면에서 안보이게 설정만 해주고 버튼 자체를 삭제하진 않는다.
+	   $(".slider_prev img").click(function(){    
+	   	   currentIndex--;
+	   	   if(currentIndex < 0) {currentIndex=bannerLength-1;};
+	   	   showImage(currentIndex);
+	   });
+	   $(".slider_next img").click(function(){
+	   	   currentIndex++;
+	   	   if(currentIndex >= bannerLength){currentIndex=0;};
+	   	   showImage(currentIndex);
+	   });
+	   function showImage(index){ 
+	       $(".slider_box > li").stop().fadeOut(2000);
+           $(".slider_box > li").eq(index).stop().fadeIn(2000);
+	   }
+    
+    // 여기서부턴 반복하게 하기위한 내용입니다.
+         var current = 0;
+         var setIntervalId;    
+    
+        $("#wrap").on({
+            //마우스를 wrap에 가져가면 자동 fadeinout이 멈춘다.
+		  mouseover:function(){
+			 clearInterval(setIntervalId);
+		  },
+            //마우스를 wrap에서 벗어나면 자동 fadeinout이 실행된다.
+		  mouseout:function(){
+			 timer();
+		  }
+	});
+    
+    // 버튼을 click하는 이벤트를 자동 발생시킨다.
+    function timer(){
+		setIntervalId = setInterval(function(){
+			$(".slider_next").trigger('click');
+		}, 6000000);
+	}
+     });
+        
+    $(document).ready(function(){
+            $("#nav_box > li").on({
+                mouseenter:function(){
+                    $(this).find(".sub_container").stop().slideDown(300);
+                },
+                mouseleave:function(){
+                    $(this).find(".sub_container").stop().slideUp(300);
+                }
+            });
+        });
+    </script>
+    
+    <script>
+    $(document).ready(function(){
+        $(".pd_txtbox").on({
+            mouseenter:function(){
+                $(this).find("h2").stop().animate({top:"20%"},600);
+                $(this).find(".hidden_txtbox").stop().delay(300).fadeIn(1000);
+            },
+            mouseleave:function(){
+                $(this).find("h2").stop().animate({top:"50%"},600);
+                $(this).find(".hidden_txtbox").stop().hide();
+            }
+        });
+    });
+    </script>
+    
+    <script>
+    $(document).ready(function(){
+        $(".news_more > a").on({
+            mouseenter:function(){
+                $(this).find("span > img").attr('src','icon/plus2.png');
+            },
+            mouseleave:function(){
+                $(this).find("span > img").attr('src','icon/plus.png');
+            }
+        });
+    })
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <div class="header_container box_inner">
+                <nav class="clear">
+                    <h1 id="logo_img"><a href="javascript:void(0);"><img src="icon/logo.png" alt="휴비스"></a></h1>
+                    <ul id="nav_box" class="clear">
+                        <li>
+                            <a href="javascript:void(0);">회사소개</a>
+                            <div class="sub_container sub_container1">
+                                <ul class="sub_box clear">
+                                    <li><a href="javascript:void(0);">기업정보</a></li>
+                                    <li><a href="javascript:void(0);">R&amp;D</a></li>
+                                </ul>
+                            </div> 
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">제품소개</a>
+                            <div class="sub_container sub_container2">
+                                <ul class="sub_box clear">
+                                    <li><a href="javascript:void(0);">단섬유</a></li>
+                                    <li><a href="javascript:void(0);">장섬유</a></li>
+                                    <li><a href="javascript:void(0);">슈퍼섬유</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="javascript:void(0);">뉴스룸</a></li>
+                        <li><a href="javascript:void(0);">인재채용</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="section s0">
+            <div class="slider_container">
+                <div class="slider_banner">
+                    <ul class="slider_box">
+                        <li>
+                            <div class="sl_txt box_inner">
+                                <div class="sl_subtxt">The Infinite potential of Material</div>
+                                <h2>소재의 무한한 가능성</h2>
+                                <h3>휴비스는 세계 섬유 소비의 50% 이상을 차지하는 폴리에스터 사업 뿐만이 아니라<br>슈퍼섬유, 산업용소재, 융합소재 등 최첨단 소재사업으로<br>그 영역을 지속적으로 확대해 나가고 있습니다.</h3>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sl_txt box_inner">
+                                <div class="sl_subtxt">Technology for better life</div>
+                                <h2>더 나은 세상을 위한 기술</h2>
+                                <h3>휴비스는 소재 기술의 진보가 더 나은 세상을 만든다는 경영철학을 바탕으로<br>보다 풍요로운 내일을 만들기 위한 소재 기술 개발에 더욱 매진합니다.</h3>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sl_txt box_inner">
+                                <div class="sl_subtxt">Technology for better safety</div>
+                                <h2>더 나은 안전을 위한 기술</h2>
+                                <h3>휴비스는 유해한 접착제를 대체하는 섬유, 소방복용 아라미드 섬유, 산업용 필터소재 등을 생산하여<br>안전을 지키기 위해 노력합니다.</h3>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="slider_arrow slider_prev"><img src="icon/arr_left.png" alt="왼쪽"></div>
+                    <div class="slider_arrow slider_next"><img src="icon/arr_right.png" alt="오른쪽"></div>
+                    <div id="slider_scroll">
+                        <div id="am_move">
+                            <img src="icon/slide_mouse.png" alt="마우스">
+                            <div id="scroll_txt">Scroll</div>
+                        </div>
+                        <hr id="slider_line">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section s1 box_inner">
+            <div class="st_title">
+                <hr class="title_line">
+                <h2>PRODUCT</h2>
+                <p>차별화 된 기술력과 노하우로 삶의 가치를 높이는 고부가가치 소재를 생산하고 있습니다.</p>
+            </div>
+            <div class="pd_container">
+                <div class="pd_box pd_box1">
+                    <img src="img/product_bg1.jpg" alt="단섬유">
+                    <div class="pd_txtbox">
+                        <h2>단섬유</h2>
+                        <div class="hidden_txtbox">
+                            <p>폴리에스터 원료를 이용해 방사와 연신과정을 거친 후 짧게 잘라 솜 형태로 만든 것</p>
+                            <div class="pd_icon">
+                                <img src="sub_icon/1.png" alt="자동차">
+                                <img src="sub_icon/2.png" alt="가구류">
+                                <img src="sub_icon/3.png" alt="위생재">
+                            </div>
+                            <div class="more_icon">
+                                <a href="javascript:void(0);"><img src="icon/more2.png" alt="more"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pd_box pd_box2">
+                    <img src="img/product_bg2.jpg" alt="장섬유">
+                    <div class="pd_txtbox">
+                        <h2>장섬유</h2>
+                        <div class="hidden_txtbox">
+                            <p>폴리에스터 원료를 이용해 방사와 연신과정을 거친 후 실 형태로 만든 것</p>
+                            <div class="pd_icon">
+                                <img src="sub_icon/15.png" alt="정장">
+                                <img src="sub_icon/23.png" alt="시트커버">
+                                <img src="sub_icon/24.png" alt="침구커버">
+                            </div>
+                            <div class="more_icon">
+                                <a href="javascript:void(0);"><img src="icon/more2.png" alt="more"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pd_box pd_box3">
+                    <img src="img/product_bg3.jpg" alt="슈퍼섬유">
+                    <div class="pd_txtbox">
+                        <h2>슈퍼섬유</h2>
+                        <div class="hidden_txtbox">
+                            <p>일반섬유보다 강도가 월등히 높거나 고열에 견딜 수 있는 내열/난연성이 우수한 고성능 섬유소재</p>
+                            <div class="pd_icon">
+                                <img src="sub_icon/29.png" alt="보호복,안전복">
+                                <img src="sub_icon/30.png" alt="특수복">
+                                <img src="sub_icon/31.png" alt="산업용소재">
+                            </div>
+                            <div class="more_icon">
+                                <a href="javascript:void(0);"><img src="icon/more2.png" alt="more"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section s2">
+            <div class="rd_container box_inner clear">
+                <div class="rd_box">
+                    <div class="rd_title">
+                        <div class="rd_icon"><img src="icon/btn_rb.png" alt="R&D센터 아이콘"></div>
+                        <h2>R&amp;D 센터</h2>
+                    </div>
+                    <p>끊임없는 연구 개발, 휴비스의 원동력입니다.</p>
+                    <p>휴비스 R&D 센터는 지속적인 연구개발과 노력으로 고객만족을 위해 최선을 다할 것입니다.</p>
+                    <div class="rd_img"><img src="img/rd_img2.jpg" alt="R&D센터"></div>
+                    <div class="rd_more">
+                        <a href="javascript:void(0);">자세히보기<span class="arrow_right"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section s3 box_inner">
+            <div class="s34_title">
+                <h2>NEWS</h2>
+                <hr class="s34_line">
+                <p>휴비스의 새로운 소식을 전해드립니다.</p>
+            </div>
+            <div class="news_wrap">
+               <div class="news_container">
+                   <div class="news_box">
+                       <a href="javascript:void(0);">
+                           <div class="news_img"><img src="img/news1.jpg" alt="여름방학에도 끼니 걱정없이, 마음까지 든든하게"></div>
+                           <div class="news_txt">
+                               <div class="news_inner">
+                                   <span>휴비스</span>
+                                   <p>여름방학에도 끼니 걱정없이, 마음까지 든든하게</p>
+                                   <p>2020-07-09</p>
+                                   <img src="icon/go_site.png" alt="화살표">
+                               </div>
+                           </div>
+                       </a>
+                   </div>
+                   <div class="news_box">
+                       <a href="javascript:void(0);">
+                           <div class="news_img"><img src="img/news2-1.jpg" alt="휴비스 사업장 통합 완료, 7월 본격 가동 시작"></div>
+                           <div class="news_txt">
+                               <div class="news_inner">
+                                   <span>휴비스</span>
+                                   <p>휴비스 사업장 통합 완료, 7월 본격 가동 시작</p>
+                                   <p>2020-07-02</p>
+                                   <img src="icon/go_site.png" alt="화살표">
+                               </div>
+                           </div>
+                       </a>
+                   </div>
+                   <div class="news_box">
+                       <a href="javascript:void(0);">
+                           <div class="news_img"><img src="img/news3.jpg" alt="휴비스, 전북 8개 초등학교에 ‘희망키움 물품지원’ 지원금전달"></div>
+                           <div class="news_txt">
+                               <div class="news_inner">
+                                   <span>휴비스</span>
+                                   <p>휴비스, 전북 8개 초등학교에 ‘희망키움 물품지원’ 지원금전달</p>
+                                   <p>2020-06-17</p>
+                                   <img src="icon/go_site.png" alt="화살표">
+                               </div>
+                           </div>
+                       </a>
+                   </div>
+                   <div class="news_box">
+                       <a href="javascript:void(0);">
+                           <div class="news_img"><img src="img/news4.jpg" alt="여름방학에도 끼니 걱정없이, 마음까지 든든하게"></div>
+                           <div class="news_txt">
+                               <div class="news_inner">
+                                   <span>휴비스</span>
+                                   <p>여름방학에도 끼니 걱정없이, 마음까지 든든하게</p>
+                                   <p>2020-07-09</p>
+                                   <img src="icon/go_site.png" alt="화살표">
+                               </div>
+                           </div>
+                       </a>
+                    </div>
+                </div>
+                <div class="news_more">
+                    <a href="javascript:void(0);">
+                        <p>더</p>
+                        <p>보</p>
+                        <p>기</p>
+                    <span><img src="icon/plus.png" alt="더보기"></span>
+                    </a>
+                </div>  
+            </div>
+        </div>
+        <div class="section s4">
+            <div class="re_wrap box_inner">
+                <div class="re_container">
+                    <div class="s34_title s4_title">
+                        <h2>RECRUIT</h2>
+                        <hr class="s34_line">
+                        <p><strong>안전</strong>을 최우선에 두고 <strong>신뢰</strong>를 바탕으로 끊임없이 <strong>도전</strong>하여 <strong>탁월</strong>한 성과를 창출하는 인재</p>
+                    </div>
+                    <div class="re_box"><a href="javascript:void(0);">
+                        <ul>
+                            <li>
+                                <img src="icon/h_safety.png" alt="안전 아이콘">
+                                <span>안전</span>
+                                <span>Safety</span>
+                            </li>
+                            <li>
+                                <img src="icon/h_trust.png" alt="신뢰 아이콘">
+                                <span>신뢰</span>
+                                <span>Trust</span>
+                            </li>
+                            <li>
+                                <img src="icon/h_challenge.png" alt="도전 아이콘">
+                                <span>도전</span>
+                                <span>Challenge</span>
+                            </li>
+                            <li>
+                                <img src="icon/h_excellent.png" alt="탁월 아이콘">
+                                <span>탁월</span>
+                                <span>Excellent</span>
+                            </li>
+                        </ul>
+                    </a></div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="footer_box box_inner">
+                <div class="ft_logo">
+                    <img src="icon/logo.png" alt="휴비스">
+                </div>
+                <div class="ft_middle">
+                    <p>[06060] 서울특별시 강남구 학동로 343 (더 피나클 강남 12층)</p>
+                    <p>Copyright © Huvis All Rights Reserved</p>
+                </div>
+                <div class="ft_right">
+                    <p>고객센터 02-2189-4567</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
