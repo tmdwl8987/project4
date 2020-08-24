@@ -320,7 +320,7 @@ ul.slider_box > li > .sl_txt > h3 {font-size: 21px; font-weight: normal; line-he
 .pd_box > .pd_txtbox > h2 {width: 60%; height: 50px; line-height: 50px; border-radius: 10px; left: 20%; font-size: 20px;}
 .pd_box > .pd_txtbox:hover:before {height: 300px;}
 
-.pd_box > .pd_txtbox > .hidden_txtbox {width: 100%; height: 190px; position: absolute; left: 0; top: 90px; padding: 0 20%; display: block;}
+.pd_box > .pd_txtbox > .hidden_txtbox {width: 100%; height: 190px; position: absolute; left: 0; top: 90px; padding: 0 20%; display: none;}
 .pd_box > .pd_txtbox > .hidden_txtbox p {width: 100%; padding-bottom: 20px; font-size: 18px; line-height: 1.3; text-align: center; font-weight: bold;}
     
 .pd_box > .pd_txtbox > .hidden_txtbox .pd_icon {width: 60%; margin: 0 auto; display: -webkit-box; display: -ms-flexbox; display: flex;}
