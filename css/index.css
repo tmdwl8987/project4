@@ -323,7 +323,7 @@ ul.slider_box > li > .sl_txt > h3 {font-size: 21px; font-weight: normal; line-he
 .pd_box > .pd_txtbox > .hidden_txtbox {width: 60%; height: 190px; position: absolute; left: 20%; top: 90px; display: none;}
 .pd_box > .pd_txtbox > .hidden_txtbox p {width: 100%; padding-bottom: 20px; font-size: 18px; line-height: 1.3; text-align: center; font-weight: bold;}
 .pd_box > .pd_txtbox > .hidden_txtbox .pd_icon {width: 320px; margin: 0 auto;}
-.pd_box > .pd_txtbox > .hidden_txtbox .pd_icon img {width: 90px;}
+.pd_box > .pd_txtbox > .hidden_txtbox .pd_icon img {width: 90px; height: 90px;}
 .pd_box > .pd_txtbox > .hidden_txtbox .pd_icon img:nth-child(2) {margin: 0 25px;}
 .pd_box > .pd_txtbox > .hidden_txtbox .more_icon {position: absolute; right: 0; bottom: 0; width: 80px;}
 .pd_box > .pd_txtbox > .hidden_txtbox .more_icon img {vertical-align: bottom;}
