@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
     <link rel="stylesheet" href="css/aos.css">
+    <link rel="shortcut icon" href="icon/favicon.ico">
     
     <script>
         $(document).ready(function() {
@@ -64,7 +65,7 @@
             function timer() {
                 setIntervalId = setInterval(function() {
                     $(".slider_next img").trigger('click');
-                }, 6000);
+                }, 6000000);
             }
 
             $("#nav_box > li").on({
@@ -75,6 +76,65 @@
                     $(this).find(".sub_container").stop().slideUp(300);
                 }
             });
+        });
+    </script>
+        
+    <script>
+        $(document).ready(function(){
+            var cur = 10, //클릭 되어 있는 것
+                isOn = 0; //값 체크
+            $('body').append("<div id ='glayLayer'></div>");
+            
+            $(".mobtn").click(function(){
+                $(".mobtn").toggleClass("change");
+                $("#m_nav_box").stop().slideToggle();
+                $(".m_sub_container").stop().slideUp();
+                ArrowRotate1(225)
+                $("#glayLayer").toggle();
+                
+                $('#glayLayer, header, #m_nav_box').on('scroll touchmove mousewheel', function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    return false;
+                });
+            });
+            
+            $("#m_nav_box > li").on("click",function(e){
+                var i = $("#m_nav_box > li").index(this); //현재 클릭 한 것
+                
+                $(".m_sub_container").stop().slideUp(); //하나 클릭시에 다른것들 되돌려 놓기
+                ArrowRotate1(225)
+                
+                if(isOn == 1) {
+                    cur = 10;
+                } // 동일하게 클릭한 것이 계속 슬라이드 업 상태로 되지 않겠끔
+                
+                if(cur != i){
+                    $(this).find(".m_sub_container").stop().slideDown();
+                    ArrowRotate(45, i)
+                    isOn = 2;
+                } else {
+                    $(this).find(".m_sub_container").stop().slideUp();
+                    ArrowRotate(225, i)
+                    isOn = 1;
+                }
+                cur = i; // 현재 클릭 한 것을 클릭 되어 있는 것으로 바꾸기
+            });
+            
+            function ArrowRotate(d, i){ //하나만 돌리기
+                $({deg: 225}).animate({deg: d}, {
+                    step: function(now, fx){
+                        $("a > .arrow_bottom").eq(i).css({transform: "rotate(" + now + "deg)"});
+                    }
+                });
+            }
+             function ArrowRotate1(d){ //다 돌리기
+                $({deg: 225}).animate({deg: d}, {
+                    step: function(now, fx){
+                        $("a > .arrow_bottom").css({transform: "rotate(" + now + "deg)"});
+                    }
+                });
+            }
         });
     </script>
     
@@ -143,59 +203,6 @@
             }
         });
     </script>
-    
-    <script>
-        $(document).ready(function(){
-            var cur = 10, //클릭 되어 있는 것
-                isOn = 0; //값 체크
-            $('body').append("<div id ='glayLayer'></div>");
-            
-            $(".mobtn").click(function(){
-                $(".mobtn").toggleClass("change");
-                $("#m_nav_box").stop().slideToggle();
-                $(".m_sub_container").stop().slideUp();
-                ArrowRotate1(225)
-                $("#glayLayer").toggle();
-            });
-            
-            $("#m_nav_box > li").on("click",function(e){
-                var i = $("#m_nav_box > li").index(this); //현재 클릭 한 것
-                
-                $(".m_sub_container").stop().slideUp(); //하나 클릭시에 다른것들 되돌려 놓기
-                ArrowRotate1(225)
-                
-                if(isOn == 1) {
-                    cur = 10;
-                } // 동일하게 클릭한 것이 계속 슬라이드 업 상태로 되지 않겠끔
-                
-                if(cur != i){
-                    $(this).find(".m_sub_container").stop().slideDown();
-                    ArrowRotate(45, i)
-                    isOn = 2;
-                } else {
-                    $(this).find(".m_sub_container").stop().slideUp();
-                    ArrowRotate(225, i)
-                    isOn = 1;
-                }
-                cur = i; // 현재 클릭 한 것을 클릭 되어 있는 것으로 바꾸기
-            });
-            
-            function ArrowRotate(d, i){ //하나만 돌리기
-                $({deg: 225}).animate({deg: d}, {
-                    step: function(now, fx){
-                        $("a > .arrow_bottom").eq(i).css({transform: "rotate(" + now + "deg)"});
-                    }
-                });
-            }
-             function ArrowRotate1(d){ //다 돌리기
-                $({deg: 225}).animate({deg: d}, {
-                    step: function(now, fx){
-                        $("a > .arrow_bottom").css({transform: "rotate(" + now + "deg)"});
-                    }
-                });
-            }
-        });
-    </script>
 </head>
 
 <body>
@@ -203,7 +210,7 @@
         <header>
             <div class="header_container box_inner">
                 <nav class="clear">
-                    <h1 id="logo_img"><a href="javascript:void(0);"><img src="icon/logo.png" alt="휴비스"></a></h1>
+                    <h1 id="logo_img"><a href="index.html"><img src="icon/logo.png" alt="휴비스"></a></h1>
                     <ul id="nav_box" class="clear">
                         <li>
                             <a href="javascript:void(0);">회사소개</a>

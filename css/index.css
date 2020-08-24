@@ -71,7 +71,7 @@ ul.slider_box > li > .sl_txt > h3 {font-size: 24px; font-weight: normal; line-he
 .pd_box > .pd_pc {width: 100%; height: 600px; position: absolute; left: 0; top: 0; transition: all 1s;}
 .pd_box > .pd_m {display: none;}
 .pd_box2 {margin: 0 5%;}
-.pd_box > .pd_txtbox {width: 100%; height: 600px; position: relative; z-index: 10; transition: all 1s;}
+.pd_box > .pd_txtbox {width: 100%; height: 600px; position: relative; z-index: 1; transition: all 1s;}
 .pd_box > .pd_txtbox > h2 {overflow: hidden; position: absolute; width: 80%; height: 60px; line-height: 60px; text-align: center; top: 50%; transform: translateY(-50%); background: #444; color: #fff; border-radius: 10px; left: 10%; cursor: default; transition: all 1s;}
 .pd_box > .pd_txtbox:before {content: ""; z-index: -1; position: absolute; background: rgba(255,255,255,0.8); transition: all 1s; left: 0; top: 50%; transform: translateY(-50%); width: 100%; height: 0px;}
 .pd_box > .pd_txtbox:hover:before {height: 600px;}
@@ -99,7 +99,7 @@ ul.slider_box > li > .sl_txt > h3 {font-size: 24px; font-weight: normal; line-he
 .rd_box .rd_img {width: 50%; position: absolute; right: 0; top: -16%; transition: all 1s;}
 
 .rd_box .rd_more {position: relative; margin-top: 80px;}
-.rd_box .rd_more a {overflow: hidden; position: relative; display: inline-block; width: 300px; height: 50px; line-height: 50px; border: 2px solid #123981; color: #123981; font-size: 18px; font-weight: bold; padding-left: 15px; transition: all 0.5s; z-index: 10;}
+.rd_box .rd_more a {overflow: hidden; position: relative; display: inline-block; width: 300px; height: 50px; line-height: 50px; border: 2px solid #123981; color: #123981; font-size: 18px; font-weight: bold; padding-left: 15px; transition: all 0.5s; z-index: 1;}
 .rd_box .rd_more a:hover {color: #fff;}
 .rd_box .rd_more a:before {content: ""; z-index: -1; position: absolute; background: #123981; transition: all 1s; left: 0; top: 0; width: 0; height: 100%; border-bottom-right-radius: 50%; border-top-right-radius: 50%;}
 .rd_box .rd_more a:hover:before {width: 200%;}
@@ -422,7 +422,7 @@ nav #nav_box {display: none;}
 #m_nav_box > li > .m_sub_container {display: none;}
 #m_nav_box > li > .m_sub_container > ul.m_sub_box > li > a {display: block; background: #eee; color: #000; height: 40px; line-height: 40px; border-bottom: 1px solid #ccc; font-size: 15px;}
 #m_nav_box > li > .m_sub_container > ul.m_sub_box > li:last-child > a {border-bottom: 0;}
-#glayLayer {position: fixed; display: none; left: 0; top: 0; height: 100%; width: 100%; background: black; opacity: 0.5;}
+#glayLayer {position: fixed; display: none; left: 0; top: 0; height: 100%; width: 100%; background: black; opacity: 0.5; z-index: 10;}
     
 /*s0*/
 ul.slider_box > li > .sl_txt {padding: 0;}
