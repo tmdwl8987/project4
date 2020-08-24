@@ -66,8 +66,8 @@ ul.slider_box > li > .sl_txt > h3 {font-size: 24px; font-weight: normal; line-he
 .st_title h2 {font-size: 36px; width: 30%;}
 .st_title p {display: inline-block; font-size: 18px; position: absolute; right: 0; top: 0;}
 
-.pd_container {display: flex;}
-.pd_box {flex: 1; position: relative;}
+.pd_container {display: -webkit-box;display: -ms-flexbox;display: flex;}
+.pd_box {-webkit-box-flex: 1;-ms-flex: 1;flex: 1; position: relative;}
 .pd_box > .pd_pc {width: 100%; height: 600px; position: absolute; left: 0; top: 0; transition: all 1s;}
 .pd_box > .pd_m {display: none;}
 .pd_box2 {margin: 0 5%;}
@@ -78,8 +78,8 @@ ul.slider_box > li > .sl_txt > h3 {font-size: 24px; font-weight: normal; line-he
 
 .pd_box > .pd_txtbox > .hidden_txtbox {height: 300px; position: absolute; left: 0; top: 220px; padding: 0 10%; display: none;}
 .pd_box > .pd_txtbox > .hidden_txtbox p {padding-bottom: 20px; font-size: 20px; line-height: 1.3; text-align: center; font-weight: bold;}
-.pd_box > .pd_txtbox > .hidden_txtbox .pd_icon {width: 100%; display: flex;}
-.pd_box > .pd_txtbox > .hidden_txtbox .pd_icon img {width: 27%; flex: 1;}
+.pd_box > .pd_txtbox > .hidden_txtbox .pd_icon {width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex;}
+.pd_box > .pd_txtbox > .hidden_txtbox .pd_icon img {width: 27%; -webkit-box-flex: 1; -ms-flex: 1; flex: 1;}
 .pd_box > .pd_txtbox > .hidden_txtbox .pd_icon img:nth-child(2) {margin: 0 8%;}
 .pd_box > .pd_txtbox > .hidden_txtbox .more_icon {position: absolute; right: 10%; bottom: 0;}
 .pd_box > .pd_txtbox > .hidden_txtbox .more_icon img {vertical-align: bottom;}
@@ -155,8 +155,8 @@ ul.slider_box > li > .sl_txt > h3 {font-size: 24px; font-weight: normal; line-he
 .re_container {width: 80%; margin: 0 auto; display: inline-block; vertical-align: middle;}
 .re_box {width: 70%; margin: 0 auto; transition: all 1s;}
 .re_box > a {width: 100%; display: inline-block;}
-.re_box > a > ul {display: flex;}
-.re_box > a > ul > li {flex: 1; text-align: center; border-right: 1px solid #000;}
+.re_box > a > ul {display: -webkit-box;display: -ms-flexbox;display: flex;}
+.re_box > a > ul > li {-webkit-box-flex: 1;-ms-flex: 1;flex: 1; text-align: center; border-right: 1px solid #000;}
 .re_box > a > ul > li:last-child {border-right: 0;}
 .re_box > a > ul > li > img {width: 120px; padding-bottom: 20px; transition: all 1s;}
 .re_box > a > ul > li > span {display: inline-block; width: 100%;}
@@ -322,8 +322,8 @@ ul.slider_box > li > .sl_txt > h3 {font-size: 21px; font-weight: normal; line-he
 
 .pd_box > .pd_txtbox > .hidden_txtbox {width: 100%; height: 190px; position: absolute; left: 0; top: 90px; padding: 0 20%; display: none;}
 .pd_box > .pd_txtbox > .hidden_txtbox p {width: 100%; padding-bottom: 20px; font-size: 18px; line-height: 1.3; text-align: center; font-weight: bold;}
-.pd_box > .pd_txtbox > .hidden_txtbox .pd_icon {width: 60%; margin: 0 auto; display: flex;}
-.pd_box > .pd_txtbox > .hidden_txtbox .pd_icon img {width: 30%; flex: 1;}
+.pd_box > .pd_txtbox > .hidden_txtbox .pd_icon {width: 60%; margin: 0 auto;}
+.pd_box > .pd_txtbox > .hidden_txtbox .pd_icon img {width: 30%;}
 .pd_box > .pd_txtbox > .hidden_txtbox .pd_icon img:nth-child(2) {margin: 0 10%;}
 .pd_box > .pd_txtbox > .hidden_txtbox .more_icon {position: absolute; right: 20%; bottom: 0; width: 80px;}
 .pd_box > .pd_txtbox > .hidden_txtbox .more_icon img {vertical-align: bottom;}
@@ -417,7 +417,7 @@ nav #nav_box {display: none;}
 #m_nav_box {position: absolute; width: 100%; left: 0; top: 60px; display: none;}
 #m_nav_box li a {padding-left: 5%;}
 #m_nav_box > li > a {display: block; background: #123981; color: #fff; width: 100%; height: 50px; line-height: 50px; border-bottom: 1px solid #666; position: relative;}
-#m_nav_box > li > a > .arrow_bottom {width: 16px; height: 16px; border-top: 2px solid #fff; border-left: 2px solid #fff; transform: rotate(225deg); position: absolute; right: 5%; top: 16px;}
+#m_nav_box > li > a > .arrow_bottom {width: 14px; height: 14px; border-top: 2px solid #fff; border-left: 2px solid #fff; transform: rotate(225deg); position: absolute; right: 5%; top: 16px;}
 #m_nav_box > li:nth-child(4) > a {border-bottom: 0;}
 #m_nav_box > li > .m_sub_container {display: none;}
 #m_nav_box > li > .m_sub_container > ul.m_sub_box > li > a {display: block; background: #eee; color: #000; height: 40px; line-height: 40px; border-bottom: 1px solid #ccc; font-size: 15px;}
@@ -453,9 +453,9 @@ ul.slider_box > li > .sl_txt > h3 {font-size: 16px; font-weight: normal; line-he
 
 .pd_box > .pd_txtbox > .hidden_txtbox {width: 100%; height: 140px; position: absolute; left: 0; top: 60px; padding: 0 5%; display: none;}
 .pd_box > .pd_txtbox > .hidden_txtbox p {width: 100%; padding-bottom: 10px; font-size: 14px; line-height: 1.3; text-align: center; font-weight: bold;}
-.pd_box > .pd_txtbox > .hidden_txtbox .pd_icon {width: 80%; margin: 0 auto; display: flex;}
-.pd_box > .pd_txtbox > .hidden_txtbox .pd_icon img {width: 20%; flex: 1;}
-.pd_box > .pd_txtbox > .hidden_txtbox .pd_icon img:nth-child(2) {margin: 0 10%;}
+.pd_box > .pd_txtbox > .hidden_txtbox .pd_icon {width: 220px; margin: 0 auto;}
+.pd_box > .pd_txtbox > .hidden_txtbox .pd_icon img {width: 60px;}
+.pd_box > .pd_txtbox > .hidden_txtbox .pd_icon img:nth-child(2) {margin: 0 20px;}
 .pd_box > .pd_txtbox > .hidden_txtbox .more_icon {position: absolute; right: 5%; bottom: 0; width: 60px;}
 .pd_box > .pd_txtbox > .hidden_txtbox .more_icon img {vertical-align: bottom;}
     
