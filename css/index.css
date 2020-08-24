@@ -422,7 +422,7 @@ nav #nav_box {display: none;}
 #m_nav_box > li > .m_sub_container {display: none;}
 #m_nav_box > li > .m_sub_container > ul.m_sub_box > li > a {display: block; background: #eee; color: #000; height: 40px; line-height: 40px; border-bottom: 1px solid #ccc; font-size: 15px;}
 #m_nav_box > li > .m_sub_container > ul.m_sub_box > li:last-child > a {border-bottom: 0;}
-#glayLayer {position: fixed; display: none; left: 0; top: 0; height: 100%; width: 100%; background: black; opacity: 0.5; z-index: 10;}
+#glayLayer {position: fixed; display: none; left: 0; top: 0; height: 100%; width: 100%; background: black; opacity: 0.6; z-index: 10;}
     
 /*s0*/
 ul.slider_box > li > .sl_txt {padding: 0;}
