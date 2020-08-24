@@ -5,7 +5,11 @@ html,body {font-family: 'Nanumsquare'; width: 100%; height: 100%;}
 
 
 /*header*/
-header {width: 100%; height: 80px; position: fixed; left: 0; top: 0; background: #fff; z-index: 30; border-bottom: 1px solid #aaa; transition: all 1s;}
+header {height: 80px; position: fixed; left: 0; background: #fff; border-bottom: 1px solid #aaa; transition: all 1s; left:1px;
+text-align:center;
+top:0px;
+width:99.999%;
+z-index:9999;}
 nav #logo_img {display: inline-block; width: 110px; height: 80px; line-height: 80px; float: left; transition: all 1s;}
 nav #logo_img a img {vertical-align: middle;}
 #m_nav_container {display: none;}  
