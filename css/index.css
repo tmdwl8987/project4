@@ -323,7 +323,7 @@ ul.slider_box > li > .sl_txt > h3 {font-size: 21px; font-weight: normal; line-he
 .pd_box > .pd_txtbox > .hidden_txtbox {width: 100%; height: 190px; position: absolute; left: 0; top: 90px; padding: 0 20%; display: none;}
 .pd_box > .pd_txtbox > .hidden_txtbox p {width: 100%; padding-bottom: 20px; font-size: 18px; line-height: 1.3; text-align: center; font-weight: bold;}
 .pd_box > .pd_txtbox > .hidden_txtbox .pd_icon {width: 60%; margin: 0 auto;}
-.pd_box > .pd_txtbox > .hidden_txtbox .pd_icon img {width: 30%;}
+.pd_box > .pd_txtbox > .hidden_txtbox .pd_icon img {width: 30%; height: 30%;}
 .pd_box > .pd_txtbox > .hidden_txtbox .pd_icon img:nth-child(2) {margin: 0 10%;}
 .pd_box > .pd_txtbox > .hidden_txtbox .more_icon {position: absolute; right: 20%; bottom: 0; width: 80px;}
 .pd_box > .pd_txtbox > .hidden_txtbox .more_icon img {vertical-align: bottom;}
@@ -371,7 +371,7 @@ ul.slider_box > li > .sl_txt > h3 {font-size: 21px; font-weight: normal; line-he
 .news_more {width: 100%; height: 50px; display: inline-block; position: relative; right: 0; top: 0;}
 .news_more > a {width: 100%; height: 50px; display: inline-block; position: relative; top: 0; left: 0; text-align: center; padding-top: 0px;}
 .news_more > a > p {display: none;}
-.news_more > a > .m_more {width: 100px; color: #123981; font-weight: bold; font-size: 20px; height: 46px; line-height: 46px; display: block; letter-spacing: 2px; padding-left: 5%;}
+.news_more > a > .m_more {width: 120px; color: #123981; font-weight: bold; font-size: 20px; height: 46px; line-height: 46px; display: block; letter-spacing: 2px; padding-left: 5%;}
 .news_more > a > span:nth-of-type(2) {width: 36px; height: 36px; display: inline-block; position: absolute; left: 90%; bottom: 5px;}
     
 /*section s4*/
