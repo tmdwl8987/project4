@@ -7,66 +7,71 @@
     
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/prefixfree.min.js"></script>
+    <script src="js/jquery.touchSwipe.min.js"></script>
     
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+    <link rel="stylesheet" href="css/aos.css">
     
     <script>
-     $(document).ready(function(){
-         var banner = $(".slider_box");
-         var bannerLength = banner.find("li").length;
-         var currentIndex = 0;
-         
-         //처음 오픈시 자동 FadeInOut이 필요하면 timer()를 실행시켜줘여한다.
-        timer();
-    
-        //버튼이 필요없어도 자동 실행을 위해서 버튼은 남겨두어야 한다.
-        //만일 화면에서 필요 없으면 화면에서 안보이게 설정만 해주고 버튼 자체를 삭제하진 않는다.
-	   $(".slider_prev img").click(function(){    
-	   	   currentIndex--;
-	   	   if(currentIndex < 0) {currentIndex=bannerLength-1;};
-	   	   showImage(currentIndex);
-	   });
-	   $(".slider_next img").click(function(){
-	   	   currentIndex++;
-	   	   if(currentIndex >= bannerLength){currentIndex=0;};
-	   	   showImage(currentIndex);
-	   });
-	   function showImage(index){ 
-	       $(".slider_box > li").stop().fadeOut(2000);
-           $(".slider_box > li").eq(index).stop().fadeIn(2000);
-	   }
-    
-    // 여기서부턴 반복하게 하기위한 내용입니다.
-         var current = 0;
-         var setIntervalId;    
-    
-        $("#wrap").on({
-            //마우스를 wrap에 가져가면 자동 fadeinout이 멈춘다.
-		  mouseover:function(){
-			 clearInterval(setIntervalId);
-		  },
-            //마우스를 wrap에서 벗어나면 자동 fadeinout이 실행된다.
-		  mouseout:function(){
-			 timer();
-		  }
-	});
-    
-    // 버튼을 click하는 이벤트를 자동 발생시킨다.
-    function timer(){
-		setIntervalId = setInterval(function(){
-			$(".slider_next").trigger('click');
-		}, 6000000);
-	}
-     });
-        
-    $(document).ready(function(){
+        $(document).ready(function() {
+            var banner = $(".slider_box");
+            var bannerLength = banner.find("li").length;
+            var currentIndex = 0;
+
+            //처음 오픈시 자동 FadeInOut이 필요하면 timer()를 실행시켜줘여한다.
+            timer();
+
+            //버튼이 필요없어도 자동 실행을 위해서 버튼은 남겨두어야 한다.
+            //만일 화면에서 필요 없으면 화면에서 안보이게 설정만 해주고 버튼 자체를 삭제하진 않는다.
+            $(".slider_prev img").click(function() {
+                currentIndex--;
+                if (currentIndex < 0) {
+                    currentIndex = bannerLength - 1;
+                };
+                showImage(currentIndex);
+            });
+            $(".slider_next img").click(function() {
+                currentIndex++;
+                if (currentIndex >= bannerLength) {
+                    currentIndex = 0;
+                };
+                showImage(currentIndex);
+            });
+
+            function showImage(index) {
+                $(".slider_box > li").stop().fadeOut(2000);
+                $(".slider_box > li").eq(index).stop().fadeIn(2000);
+            }
+
+            // 여기서부턴 반복하게 하기위한 내용입니다.
+            var current = 0;
+            var setIntervalId;
+
+            $("#wrap").on({
+                //마우스를 wrap에 가져가면 자동 fadeinout이 멈춘다.
+                mouseover: function() {
+                    clearInterval(setIntervalId);
+                },
+                //마우스를 wrap에서 벗어나면 자동 fadeinout이 실행된다.
+                mouseout: function() {
+                    timer();
+                }
+            });
+
+            // 버튼을 click하는 이벤트를 자동 발생시킨다.
+            function timer() {
+                setIntervalId = setInterval(function() {
+                    $(".slider_next").trigger('click');
+                }, 6000000);
+            }
+
             $("#nav_box > li").on({
-                mouseenter:function(){
+                mouseenter: function() {
                     $(this).find(".sub_container").stop().slideDown(300);
                 },
-                mouseleave:function(){
+                mouseleave: function() {
                     $(this).find(".sub_container").stop().slideUp(300);
                 }
             });
@@ -74,33 +79,125 @@
     </script>
     
     <script>
-    $(document).ready(function(){
-        $(".pd_txtbox").on({
-            mouseenter:function(){
-                $(this).find("h2").stop().animate({top:"20%"},600);
-                $(this).find(".hidden_txtbox").stop().delay(300).fadeIn(1000);
-            },
-            mouseleave:function(){
-                $(this).find("h2").stop().animate({top:"50%"},600);
-                $(this).find(".hidden_txtbox").stop().hide();
-            }
+        $(document).ready(function() {
+            $(".pd_txtbox").on({
+                mouseenter: function() {
+                    $(this).find("h2").stop().animate({
+                        top: "15%"
+                    }, 10);
+                    $(this).find(".hidden_txtbox").stop().delay(300).fadeIn(1000);
+                },
+                mouseleave: function() {
+                    $(this).find("h2").stop().animate({
+                        top: "50%"
+                    }, 10);
+                    $(this).find(".hidden_txtbox").stop().hide();
+                }
+            });
         });
-    });
     </script>
     
     <script>
-    $(document).ready(function(){
-        $(".news_more > a").on({
-            mouseenter:function(){
-                $(this).find("span > img").attr('src','icon/plus2.png');
-            },
-            mouseleave:function(){
-                $(this).find("span > img").attr('src','icon/plus.png');
+        $(document).ready(function(){
+            $(".news_more > a").on({
+                mouseenter:function(){
+                    $(this).find("span > img").attr('src','icon/plus2.png');
+                    AnimateRotate(0);
+                },
+                mouseleave:function(){
+                    $(this).find("span > img").attr('src','icon/plus.png');
+                    AnimateRotate1(90);
+                }
+            });
+            
+            function AnimateRotate(d){
+                $({deg: 90}).animate({deg: d}, {
+                    step: function(now, fx){
+                        setTimeout(function() {
+                            $(".news_more > a > p:eq(0)").css({transform: "rotate(" + now + "deg)"});
+                        });
+                        setTimeout(function() {
+                            $(".news_more > a > p:eq(1)").css({transform: "rotate(" + now + "deg)"});
+                        }, 100);
+                        setTimeout(function() {
+                            $(".news_more > a > p:eq(2)").css({transform: "rotate(" + now + "deg)"});
+                        }, 200);
+                    }
+                });
+            }
+            
+            function AnimateRotate1(d){
+                $({deg: 0}).animate({deg: d}, {
+                    step: function(now, fx){
+                        setTimeout(function() {
+                            $(".news_more > a > p:eq(0)").css({transform: "rotate(" + now + "deg)"});
+                        });
+                        setTimeout(function() {
+                            $(".news_more > a > p:eq(1)").css({transform: "rotate(" + now + "deg)"});
+                        }, 100);
+                        setTimeout(function() {
+                            $(".news_more > a > p:eq(2)").css({transform: "rotate(" + now + "deg)"});
+                        }, 200);
+                    }
+                })
             }
         });
-    })
+    </script>
+    
+    <script>
+        $(document).ready(function(){
+            var cur = 10, //클릭 되어 있는 것
+                isOn = 0; //값 체크
+            $('body').append("<div id ='glayLayer'></div>");
+            
+            $(".mobtn").click(function(){
+                $(".mobtn").toggleClass("change");
+                $("#m_nav_box").stop().slideToggle();
+                $(".m_sub_container").stop().slideUp();
+                ArrowRotate1(225)
+                $("#glayLayer").toggle();
+            });
+            
+            $("#m_nav_box > li").on("click",function(e){
+                var i = $("#m_nav_box > li").index(this); //현재 클릭 한 것
+                
+                $(".m_sub_container").stop().slideUp(); //하나 클릭시에 다른것들 되돌려 놓기
+                ArrowRotate1(225)
+                
+                if(isOn == 1) {
+                    cur = 10;
+                } // 동일하게 클릭한 것이 계속 슬라이드 업 상태로 되지 않겠끔
+                
+                if(cur != i){
+                    $(this).find(".m_sub_container").stop().slideDown();
+                    ArrowRotate(45, i)
+                    isOn = 2;
+                } else {
+                    $(this).find(".m_sub_container").stop().slideUp();
+                    ArrowRotate(225, i)
+                    isOn = 1;
+                }
+                cur = i; // 현재 클릭 한 것을 클릭 되어 있는 것으로 바꾸기
+            });
+            
+            function ArrowRotate(d, i){ //하나만 돌리기
+                $({deg: 225}).animate({deg: d}, {
+                    step: function(now, fx){
+                        $("a > .arrow_bottom").eq(i).css({transform: "rotate(" + now + "deg)"});
+                    }
+                });
+            }
+             function ArrowRotate1(d){ //다 돌리기
+                $({deg: 225}).animate({deg: d}, {
+                    step: function(now, fx){
+                        $("a > .arrow_bottom").css({transform: "rotate(" + now + "deg)"});
+                    }
+                });
+            }
+        });
     </script>
 </head>
+
 <body>
     <div id="wrap">
         <header>
@@ -130,6 +227,36 @@
                         <li><a href="javascript:void(0);">뉴스룸</a></li>
                         <li><a href="javascript:void(0);">인재채용</a></li>
                     </ul>
+                    <div id="m_nav_container">
+                        <div class="mobtn">
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                        </div>
+                        <ul id="m_nav_box" class="clear">
+                            <li>
+                                <a href="javascript:void(0);">회사소개<span class="arrow_bottom rotate"></span></a>
+                                <div class="m_sub_container m_sub_container1">
+                                    <ul class="m_sub_box clear">
+                                        <li><a href="javascript:void(0);">기업정보</a></li>
+                                        <li><a href="javascript:void(0);">R&amp;D</a></li>
+                                    </ul>
+                                </div> 
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">제품소개<span class="arrow_bottom"></span></a>
+                                <div class="m_sub_container m_sub_container2">
+                                    <ul class="m_sub_box clear">
+                                        <li><a href="javascript:void(0);">단섬유</a></li>
+                                        <li><a href="javascript:void(0);">장섬유</a></li>
+                                        <li><a href="javascript:void(0);">슈퍼섬유</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a href="javascript:void(0);">뉴스룸</a></li>
+                            <li><a href="javascript:void(0);">인재채용</a></li>
+                        </ul>
+                    </div>
                 </nav>
             </div>
         </header>
@@ -179,7 +306,8 @@
             </div>
             <div class="pd_container">
                 <div class="pd_box pd_box1">
-                    <img src="img/product_bg1.jpg" alt="단섬유">
+                    <img class="pd_pc" src="img/product_bg1.jpg" alt="단섬유">
+                    <img class="pd_m" src="img/product_bg1_m.jpg" alt="단섬유">
                     <div class="pd_txtbox">
                         <h2>단섬유</h2>
                         <div class="hidden_txtbox">
@@ -196,7 +324,8 @@
                     </div>
                 </div>
                 <div class="pd_box pd_box2">
-                    <img src="img/product_bg2.jpg" alt="장섬유">
+                    <img class="pd_pc" src="img/product_bg2.jpg" alt="장섬유">
+                    <img class="pd_m" src="img/product_bg2_m.jpg" alt="장섬유">
                     <div class="pd_txtbox">
                         <h2>장섬유</h2>
                         <div class="hidden_txtbox">
@@ -213,7 +342,8 @@
                     </div>
                 </div>
                 <div class="pd_box pd_box3">
-                    <img src="img/product_bg3.jpg" alt="슈퍼섬유">
+                    <img class="pd_pc" src="img/product_bg3.jpg" alt="슈퍼섬유">
+                    <img class="pd_m" src="img/product_bg3_m.jpg" alt="슈퍼섬유">
                     <div class="pd_txtbox">
                         <h2>슈퍼섬유</h2>
                         <div class="hidden_txtbox">
@@ -240,7 +370,8 @@
                     </div>
                     <p>끊임없는 연구 개발, 휴비스의 원동력입니다.</p>
                     <p>휴비스 R&D 센터는 지속적인 연구개발과 노력으로 고객만족을 위해 최선을 다할 것입니다.</p>
-                    <div class="rd_img"><img src="img/rd_img2.jpg" alt="R&D센터"></div>
+                    <div class="rd_img aos-item" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+                    <img src="img/rd_img2.jpg" alt="R&D센터"></div>
                     <div class="rd_more">
                         <a href="javascript:void(0);">자세히보기<span class="arrow_right"></span></a>
                     </div>
@@ -313,7 +444,8 @@
                         <p>더</p>
                         <p>보</p>
                         <p>기</p>
-                    <span><img src="icon/plus.png" alt="더보기"></span>
+                        <span class="m_more">더보기</span>
+                        <span><img src="icon/plus.png" alt="더보기"></span>
                     </a>
                 </div>  
             </div>
@@ -329,22 +461,22 @@
                     <div class="re_box"><a href="javascript:void(0);">
                         <ul>
                             <li>
-                                <img src="icon/h_safety.png" alt="안전 아이콘">
+                                <img src="icon/h_safety.png" alt="안전 아이콘" class="aos-item" data-aos="flip-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
                                 <span>안전</span>
                                 <span>Safety</span>
                             </li>
                             <li>
-                                <img src="icon/h_trust.png" alt="신뢰 아이콘">
+                                <img src="icon/h_trust.png" alt="신뢰 아이콘" class="aos-item" data-aos="flip-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
                                 <span>신뢰</span>
                                 <span>Trust</span>
                             </li>
                             <li>
-                                <img src="icon/h_challenge.png" alt="도전 아이콘">
+                                <img src="icon/h_challenge.png" alt="도전 아이콘" class="aos-item" data-aos="flip-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
                                 <span>도전</span>
                                 <span>Challenge</span>
                             </li>
                             <li>
-                                <img src="icon/h_excellent.png" alt="탁월 아이콘">
+                                <img src="icon/h_excellent.png" alt="탁월 아이콘" class="aos-item" data-aos="flip-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
                                 <span>탁월</span>
                                 <span>Excellent</span>
                             </li>
@@ -368,5 +500,13 @@
             </div>
         </footer>
     </div>
+    
+    <script src="js/aos.js"></script>
+    <script>
+      AOS.init({
+        easing: 'ease-in-out-sine'
+      });
+    </script>
+    
 </body>
 </html>
